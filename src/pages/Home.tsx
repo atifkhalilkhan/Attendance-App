@@ -3,9 +3,14 @@ import { Route, Routes, useNavigate } from "react-router";
 import Students from "./Students";
 import StudentForm from "./StudentForm";
 import Attendance from "./Attendance";
+import { useSelector } from "react-redux";
 
 export default function Home() {
     const navigate = useNavigate()
+    const dataFromRedux = useSelector((a: any) => a.inst)
+    console.log(dataFromRedux)
+
+
     const menu = [
         {
             route: "student",
