@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 
 export default function Home() {
     const navigate = useNavigate()
-    const dataFromRedux = useSelector((a: any) => a.inst)
-    console.log(dataFromRedux)
+    const reduxData = useSelector(a => a)
+    console.log(reduxData)
 
 
     const menu = [

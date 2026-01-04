@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const instSlice = createSlice({
-    name: "instConfig",
+    name: "inst",
     initialState: {
-        instName: 'SMIT',
-        sessionYear: "2025-2026",
-        totalStudents: 0
+        instName: "SMIT",
+        totalStudent: 0
     },
-    reducers: {}
+    reducers: {
+        updateStudentCount: (a, b) => {
+            a.totalStudent = b.payload
+        }
+    }
 })
 
+export const { updateStudentCount } = instSlice.actions
 export default instSlice.reducer

@@ -3,8 +3,8 @@ import instSlice from "./reducers/instConfig"
 
 const store = configureStore({
     reducer: {
-        inst: instSlice,
+        inst: instSlice
     }
 })
 
-export default store;
+export default store

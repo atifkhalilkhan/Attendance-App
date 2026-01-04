@@ -4,10 +4,13 @@ import { message } from "antd";
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
+import { updateStudentCount } from "../config/redux/reducers/instConfig";
 
 export default function Students() {
     const navigate = useNavigate()
     const [listData, setListData] = useState<any>([])
+    const dispatch = useDispatch()
 
     const getData = async () => {
         const { error, data } = await supabase.from("Student").select("*")
@@ -16,6 +19,7 @@ export default function Students() {
         } else {
             console.log(data)
             setListData(data)
+            dispatch(updateStudentCount(data.length))
         }
     }
 

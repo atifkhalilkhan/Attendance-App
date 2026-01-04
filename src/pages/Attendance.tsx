@@ -16,9 +16,6 @@ export default function Attendance() {
             message.error(student.message)
         } else {
             console.log(student)
-
-            
-
         }
 
     }
