@@ -6,6 +6,7 @@ import { Plus } from "lucide-react";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { updateStudentCount } from "../config/redux/reducers/instConfig";
+import { useFetch } from "../config/customhooks";
 
 export default function Students() {
     const navigate = useNavigate()
@@ -13,13 +14,13 @@ export default function Students() {
     const dispatch = useDispatch()
 
     const getData = async () => {
-        const { error, data } = await supabase.from("Student").select("*")
-        if (error) {
-            message.error(error.message)
+        const res: any = useFetch("students")
+        if (res.error) {
+            message.error(res.error.message)
         } else {
-            console.log(data)
-            setListData(data)
-            dispatch(updateStudentCount(data.length))
+            console.log(res.data)
+            setListData(res.data)
+            dispatch(updateStudentCount(res.data.length))
         }
     }
 

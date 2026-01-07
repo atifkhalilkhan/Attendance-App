@@ -1,11 +1,13 @@
 import { BABox, BAInput, BAScreenHeader } from "basuite";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import supabase from "../config/dbconfig";
-import { message } from "antd";
+import { Input, message } from "antd";
 
 export default function Attendance() {
-    const [rollNo, setRollNo] = useState(null)
+    const [rollNo, setRollNo] = useState<any>(null)
     const [studentData, setStudentData] = useState({})
+    const inpRef: any = useRef(null)
+    const btnRef:any = useRef(null)
 
     const markAttendance = async (e: any) => {
         e.preventDefault()
@@ -14,23 +16,28 @@ export default function Attendance() {
 
         if (student.data.length < 1) {
             message.error(student.message)
+            inpRef.current?.focus()
         } else {
             console.log(student)
         }
-
     }
+
+    useEffect(() => {
+        inpRef.current?.focus()        
+    }, [])
 
     return <>
         <BABox className="p-2">
             <BAScreenHeader title={"Attendance"} />
             <BABox className="py-2">
                 <form onSubmit={markAttendance}>
-                    <BAInput
+                    <Input
+                        ref={inpRef}
                         value={rollNo}
                         onChange={(e: any) => {
                             setRollNo(e.target.value)
                         }}
-                        label={"Roll Number"} />
+                    />
                 </form>
             </BABox>
         </BABox>
