@@ -1,13 +1,11 @@
-import { BABox, BAInput, BAScreenHeader } from "basuite";
+import { BABox, BAScreenHeader } from "basuite";
 import { useEffect, useRef, useState } from "react";
 import supabase from "../config/dbconfig";
 import { Input, message } from "antd";
 
 export default function Attendance() {
     const [rollNo, setRollNo] = useState<any>(null)
-    const [studentData, setStudentData] = useState({})
     const inpRef: any = useRef(null)
-    const btnRef:any = useRef(null)
 
     const markAttendance = async (e: any) => {
         e.preventDefault()
@@ -23,7 +21,7 @@ export default function Attendance() {
     }
 
     useEffect(() => {
-        inpRef.current?.focus()        
+        inpRef.current?.focus()
     }, [])
 
     return <>

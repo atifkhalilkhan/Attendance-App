@@ -1,5 +1,4 @@
 import { BABox, BAButton, BAGrid, BAScreenHeader } from "basuite";
-import supabase from "../config/dbconfig";
 import { message } from "antd";
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";

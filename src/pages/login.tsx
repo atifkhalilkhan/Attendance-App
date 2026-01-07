@@ -13,6 +13,7 @@ export default function Login() {
         if (error) {
             message.error(error.message)
         } else {
+            console.log(data)
             navigate("/")
         }
         await supabase.auth.signInWithPassword({

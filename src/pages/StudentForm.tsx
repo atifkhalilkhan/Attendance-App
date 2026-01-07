@@ -1,4 +1,4 @@
-import { BABox, BAButton, BAFormElement, BAScreenHeader, goBack } from "basuite";
+import { BABox, BAFormElement, BAScreenHeader, goBack } from "basuite";
 import { useEffect, useState } from "react";
 import supabase from "../config/dbconfig";
 import { message } from "antd";
